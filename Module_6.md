@@ -52,9 +52,10 @@
     3. Sorting: By setting the columns we want to sorted as keys in the mapping, the map reduce will sort the data based on that key, 
     4. Group: Use the reduce function during the reduce step
         1. Example: Group picture
-            1. after map, there are `[(Blue, 1), (Green, 1), (Green, 2), (Green, 3)]`
-            2. The value here is not a frequency but an identifier.
-            3. reduce `[(Blue, 1), (Green, (1, 2, 3))]`
+            1. after map, there are `[(Blue, 1), (Green, 1), (Green, 1), (Green, 1)]`
+            2. reduce `[(Blue, 1), (Green, (1, 2, 3))]`
+            3. The value here is not a frequency but an identifier
+
 
 7.  Apache Hadoop ecosystem
     1. Hive: SQL-like API on top of Hadoop
