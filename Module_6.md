@@ -55,4 +55,9 @@
             1. after map, there are `[(Blue, 1), (Green, 1), (Green, 2), (Green, 3)]`
             2. The value here is not a frequency but an identifier.
             3. reduce `[(Blue, 1), (Green, (1, 2, 3))]`
-            
+
+7.  Apache Hadoop ecosystem
+    1. Hive: SQL-like API on top of Hadoop
+    2. Pig: using Pig Latin language to create complex data flow programs on top of Hadoop
+    3. Hbase: Google BigTable
+    4. Zookeeper: distributed configuration service
