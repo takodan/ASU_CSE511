@@ -7,13 +7,20 @@
 ## M3U1L2 Alternative File Organizations
 1. File Organizations
     1. Heap Files
-        1. random order
+        1. Random order store
         2. Suitable when access is a file scan retrieving all records
+        3. Efficient for frequent insertions
+        4. Inefficient for queries that need to search for specific records, as the entire file must be traversed
     2. Sorted Files
         1. Best if records must be retrieved in some order
-        2.  or only a range of records is needed
+        2. or only a range of records is needed
+        3. Efficient for queries and range searches
+        4. Inefficient for insertions and deletions, as the data must remain in order
     3. Indexes
-        1. Data structures to organize records via trees or hashing
+        1. Data structures to organize records via B+ trees or hashing
+        2. Tree structures are ideal for range queries
+        3. Hashing is best suited for equality-based searches (e.g., finding a specific record by its unique key)
+
 2. The Database Cost Model
     1. Page access cost is usually the dominant cost
     2. An accurate cost model is too complex for analyzing
@@ -72,18 +79,24 @@
     3. Each transaction must leave the database in a consistent state. Otherwise, it will crash.
 
 4. Principle of Transactions (ACID)
-    1. atomicity (不可分割性)
-        1. all or nothing
-        2. Always executing all actions in a transaction, or not executing any actions at all.
-    2. consistency
-        1. no violation of integrity constraints
-        2. e.g., referential integrity
-    3. isolation
-        1. changes must be serializable
-        2. If several transactions are executed concurrently, the results must be the same as if they were executed serially in order.
-    4. durability
-        1. committed updates persist
-        2. guarantee the results of operations will never be lost
+    1. Atomicity (不可分割性)
+        1. Atomicity guarantees that all operations within a transaction are either completely executed or not executed at all (all or nothing).
+        2. A transaction is an indivisible unit that cannot be partially executed.
+        3. Always executing all actions in a transaction, or not executing any actions at all.
+        4. Atomicity is mainly supported by the rollback mechanism.
+    2. Consistency
+        1. Consistency ensures that the database remains in a consistent state before and after a transaction
+        2. All transactions must transform the database from one valid state to another.
+        3. no violation of integrity constraints
+        2. e.g., primary key constraints, uniqueness constraints, referential integrity constraints
+    3. Isolation
+        1. Isolation ensures that the operations of a transaction are not affected by other concurrent transactions.
+        2. If multiple transactions are executed concurrently, the results must be the same as if they were executed serially in order (sequentially).
+        3. Isolation is managed through different isolation levels (locking mechanism)
+    4. Durability
+        1. Durability ensures that once a transaction is committed, its changes are permanently saved and will not be lost
+        2. Once a transaction is committed, the updated data must be written to permanent storage
+        3. Durability is typically ensured by using log files, file synchronization, and backup mechanisms.
 
 
 ## M3U4L1 Lock Based Concurrency Control

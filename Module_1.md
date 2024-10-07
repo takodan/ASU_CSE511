@@ -34,8 +34,8 @@ of sources and format. (volume, velocity and variety)
     |Attribute|Attribute|
 4. Levels of abstraction
     1. many views: what user see
-    2. single conceptual/logical schema: developer design
-    3. single physical schema: DBMS controls
+    2. single conceptual/logical schema: it defines the logical structure that is used for the data. developer design
+    3. single physical schema: it describes the files and indexes used. DBMS controls
 
 ### M1U3L1 Entity Relationship Model ER
 1. Database design
